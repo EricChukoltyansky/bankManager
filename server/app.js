@@ -1,28 +1,36 @@
-const express = require("express");
+const express = require('express');
+
+//
+const cors = require('cors');
+const path = require('path');
+//
+
 const app = express();
 
 const port = process.env.PORT || 5000;
-const cors = require("cors");
 
-const publicPath = path.join(__dirname, "client/build");
-
+//
+const publicPath = path.join(__dirname, 'client/build');
 app.use(cors());
+app.use(express.static(publicPath));
+//
 
-app.get("api/users", (req, res) => {
+app.use(express.json());
+
+app.get('/api/users', (req, res) => {
   try {
-    res.status(200).send({ userName: "Bob" });
+    res.status(200).send({ userName: 'Bob' });
   } catch (e) {
     res.status(400).send({ error: e.message });
   }
 });
 
-app.listen(port, () => {
-  console.log("Listening on port " + port);
+//
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(publicPath, 'index.html'));
 });
+//
 
-// git init
-// git add README.md
-// git commit -m "first commit"
-// git branch -M main
-// git remote add origin https://github.com/EricChukoltyansky/bankManager.git
-// git push -u origin main
+app.listen(port, () => {
+  console.log('listening on port ' + port);
+});
