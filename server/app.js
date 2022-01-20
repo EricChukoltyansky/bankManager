@@ -1,5 +1,5 @@
 const express = require('express');
-
+require('dotenv').config()
 //
 const cors = require('cors');
 const path = require('path');
@@ -17,7 +17,7 @@ app.use(express.static(publicPath));
 
 app.use(express.json());
 
-app.get('/api/users', (req, res) => {
+app.get('/users', (req, res) => {
   try {
     res.status(200).send({ userName: 'Bob' });
   } catch (e) {
