@@ -32,3 +32,7 @@ const userSchema = new mongoose.Schema({
     },
   },
 });
+
+const User = mongoose.model("Client", userSchema);
+
+module.exports = User;

@@ -1,0 +1,15 @@
+GET https://bank-erichu.herokuapp.com/api/users
+
+###
+
+POST https://bank-erichu.herokuapp.com/api/user HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Eric Chukoltyansky",
+    "mobile" : "0559544755",
+    "email": "eric@gmail.com",
+    "password": "192837465"
+    
+}
+
