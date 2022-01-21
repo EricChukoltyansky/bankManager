@@ -9,18 +9,19 @@ async function getUsers() {
 }
 
 async function addUser({ name, mobile, email, password }) {
-  console.log(name);
-  console.log(mobile);
-  console.log(password);
-  console.log(email);
+  if (!name || !mobile || !email || !password)
+    throw new Error(
+      "parameters name ,mobile password and email must be provide"
+    );
   try {
-    if (!name || !mobile || !email || !password) {
-      throw new Error("All paramaters must be provided");
-    }
-    // const user = new User({ name, mobile, email, password });
-    const user = new User({ name, mobile });
+    const user = new User({
+      name,
+      mobile,
+      email,
+      password,
+    });
     await user.save();
-    return user;
+    createBankAccount(user._id);
   } catch (e) {
     throw new Error(e);
   }

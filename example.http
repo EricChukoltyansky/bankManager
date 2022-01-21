@@ -12,19 +12,20 @@ Content-type: application/json
     "name": "EricChuko",
     "mobile" : "+972652203450",
     "email": "eric@gmail.com",
-    "password": "1925"    
+        
 }
 
 ###
 
 POST http://localhost:5000/api/user HTTP/1.1
-Content-type: application/json
+Content-type: "application/json"
 
 {
     "name": "EricChuko",
     "mobile" : "0559544755",
     "email": "eric@gmail.com",
-    "password": "1924455"    
+    "password": "1928376"
+       
 }
 
 

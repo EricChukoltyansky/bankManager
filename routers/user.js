@@ -4,6 +4,8 @@ const { addUser } = require("../utils/utils");
 
 router.post("/api/user", async (req, res) => {
   try {
+    console.log("router")
+    console.log(req.body);
     await addUser(req.body);
     res.status(201).send("User added");
   } catch (e) {
