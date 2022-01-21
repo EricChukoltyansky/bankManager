@@ -34,7 +34,7 @@ app.get("/api/users", (req, res) => {
 app.post("/api/user", async (req, res) => {
   try {
     console.log(req.body);
-    await addUser(req.body);
+    // await addUser(req.body);
     res.status(201).send("User added");
   } catch (e) {
     res.status(400).send({ error: e.message });
