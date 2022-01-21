@@ -1,21 +1,35 @@
 // import { useState } from 'react';
-import myApi from './api/Api';
+import { useEffect, useState } from "react";
+import Api from "./api/Api";
 
 function App() {
-  // const [user, setUser] = useState('');
+  const [client, setClient] = useState("");
 
-  console.log(process.env.NODE_ENV);
+  // console.log(process.env.NODE_ENV);
 
-  const getReq = async () => {
-    const { data } = await myApi.get('/users');
-    console.log(data);
-  };
+  useEffect(() => {
+    const fetchData = async () => {
+      const userData = await Api.get("users");
+      setClient(userData);
+    };
+    fetchData();
+  });
+
+  const renderClients = client.map((client) => {
+    return (
+      <div key={client._id}>
+        <span>{client.name}</span>
+        <span>{client.mobile}</span>
+        <span>{client.password}</span>
+        <span>{client.email}</span>
+      </div>
+    );
+  });
   return (
-    <div className='App'>
-      {' '}
-      Hello World!
-      <button onClick={getReq}>get</button>
-    </div>
+    <>
+      <h1>Bank Clients</h1>
+      <div>{renderClients}</div>
+    </>
   );
 }
 

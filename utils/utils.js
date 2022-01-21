@@ -11,7 +11,7 @@ async function getUsers() {
 async function addUser({ name, mobile, email, password }) {
   if (!name || !mobile || !email || !password)
     throw new Error(
-      "parameters name ,mobile password and email must be provide"
+      "parameters name ,mobile, password and email must be provide"
     );
   try {
     const user = new User({
@@ -21,7 +21,16 @@ async function addUser({ name, mobile, email, password }) {
       password,
     });
     await user.save();
-    createBankAccount(user._id);
+  } catch (e) {
+    throw new Error(e);
+  }
+}
+
+async function getUser(id) {
+  try {
+    const userData = [];
+    userData.push(await User.findById(id));
+    return userData;
   } catch (e) {
     throw new Error(e);
   }
@@ -30,4 +39,5 @@ async function addUser({ name, mobile, email, password }) {
 module.exports = {
   addUser,
   getUsers,
+  getUser,
 };
