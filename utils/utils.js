@@ -9,6 +9,10 @@ async function getUsers() {
 }
 
 async function addUser({ name, mobile, email, password }) {
+  console.log(name);
+  console.log(mobile);
+  console.log(email);
+  console.log(password);
   if (!name || !mobile || !email || !password) {
     throw new Error("All paramaters must be provided");
   }
@@ -20,6 +24,7 @@ async function addUser({ name, mobile, email, password }) {
       password,
     });
     await user.save();
+    return user;
   } catch (e) {
     throw new Error(e);
   }
