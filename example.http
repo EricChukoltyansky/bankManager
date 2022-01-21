@@ -22,10 +22,10 @@ POST http://localhost:5000/api/user HTTP/1.1
 content-type: application/json
 
 {
-    "name": "EricChuko",
-    "mobile" : "0559544755",
-    "email": "eric@gmail.com",
-    "password": "1928376"
+    "name": "EricChukolt",
+    "mobile" : "0549544655",
+    "email": "eric1@gmaul.com",
+    "password": "19328356"
        
 }
 
