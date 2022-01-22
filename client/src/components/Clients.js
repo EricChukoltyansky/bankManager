@@ -4,6 +4,7 @@ import api from "../api/Api";
 
 const Client = () => {
   const [clients, setClients] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
       const usersData = await api.get("/users");
