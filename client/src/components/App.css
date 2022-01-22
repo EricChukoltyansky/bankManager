@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f3f4f6;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 20px;
+  letter-spacing: 1px;
+  color: #778298;
+}
+
+h1 {
+  text-align: center;
+}
+
+.clients {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.client {
+  border: 3px solid;
+}
+
+span {
+  color: rgb(12, 10, 10);
+}
