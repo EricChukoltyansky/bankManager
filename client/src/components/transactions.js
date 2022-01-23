@@ -5,7 +5,7 @@ import api from "../api/Api";
 const Transactions = () => {
   const [userData, setUserData] = useState([]);
   const [userBankAccount, setUserBankAccount] = useState([]);
-//   const [userLog, setUserLog] = useState([]);
+
   const params = useParams();
   const [amount, setAmount] = useState(0);
   const depositRef = useRef(null);
@@ -19,8 +19,6 @@ const Transactions = () => {
       console.log(data);
       setUserData(data.data[0]);
       setUserBankAccount(data.data[1]);
-    //   setUserLog(data.data[2]);
-    // //   console.log(userLog);
     };
     fetchData();
   }, [amount, params.id]);
@@ -59,9 +57,6 @@ const Transactions = () => {
     creditRef.current.value = "";
     setAmount(0);
   };
-//   const renderLog = userLog.map((log, index) => {
-//     return <p key={index}>{log}</p>;
-//   });
 
   return (
     <>
@@ -95,7 +90,6 @@ const Transactions = () => {
         ref={creditRef}
       />
       <button onClick={creditHandle}>add credit</button>
-      {/* <div>{renderLog}</div> */}
     </>
   );
 };
